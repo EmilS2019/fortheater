@@ -7,15 +7,43 @@ export default class GraphPiece extends Component {
 	constructor(props) {
 		super(props)
 		this.props = props
+		this.isClicked = false
+		this.id = `piece-${this.props.piece}`
 	}
 
-	dragStart(e) {
-		e.dataTransfer.setData('text', 'foo')
-		setTimeout(() => (this.className = 'invisible'), 0)
+	componentDidMount() {}
+
+	// dragStart(e) {
+	// 	e.dataTransfer.setData('text', 'foo')
+	// 	setTimeout(() => (this.className = 'invisible'), 0)
+	// }
+
+	clicked(e) {
+		const { style } = document.querySelector(`#${this.id}`)
+
+		//If already clicked, move back to position
+		if (this.isClicked) {
+			this.isClicked = false
+			style.position = 'relative'
+			style.left = '0'
+			style.top = '0'
+			style.zIndex = 0
+		} else {
+			//Else follow the mouse (this won't update itself so the actuall following is done in movedMouse)
+			this.isClicked = true
+			style.position = 'absolute'
+			style.left = `${e.clientX}px`
+			style.top = `${e.clientY}px`
+			style.zIndex = 3
+		}
 	}
 
-	dragEnd() {
-		console.log('dragend')
+	movedMouse(e) {
+		if (this.isClicked) {
+			const { style } = document.querySelector(`#${this.id}`)
+			style.left = `${e.clientX}px`
+			style.top = `${e.clientY}px`
+		}
 	}
 
 	render() {
@@ -25,17 +53,21 @@ export default class GraphPiece extends Component {
 			width: 100px;
 			background: ${graphpieces[this.props.piece].color};
 			cursor: pointer;
+			box-sizing: border-box;
+			transform: translate(-50%, -50%);
+
 			/* pointer-events: none; */
 		`
+
 		Piece.displayName = 'GraphPiece'
 
 		return (
 			<Piece
 				className=''
 				draggable='true'
-				onDragStart={this.dragStart.bind(this)}
-				onDragEnd={this.dragEnd.bind(this)}
-				id={this.props.piece}
+				onClick={this.clicked.bind(this)}
+				onMouseMove={this.movedMouse.bind(this)}
+				id={this.id}
 			></Piece>
 		)
 	}

@@ -29,7 +29,9 @@ export default class Graph extends Component {
 	}
 	render() {
 		const Graph = styled.div`
-			min-height: 200px;
+			min-height: 300px;
+			/* transform: rotate(180deg); */
+			border: solid 1px black;
 		`
 		let graphPieces = []
 

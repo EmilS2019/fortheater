@@ -12,8 +12,8 @@ function App() {
 
 	return (
 		<App>
-			<Graphs />
-			<Names names={['Emil', 'Någon', 'Person1']} />
+			{/* <Graphs /> */}
+			{/* <Names names={['Emil', 'Någon', 'Person1']} /> */}
 			<Graph graphPieces={[0, 1, 2]} />
 		</App>
 	)
