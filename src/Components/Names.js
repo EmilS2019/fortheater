@@ -13,14 +13,13 @@ export default class Names extends Component {
 	render() {
 		const NameList = styled.div`
 			display: flex;
-			div {
-				margin: 40px;
-			}
+			justify-content: space-around;
+			margin-top: 80vh;
 		`
 
 		const deleteName = i => {
 			let newarr = this.state.names
-			newarr.splice(i)
+			newarr.splice(i, 1)
 			this.setState({ names: newarr })
 		}
 
@@ -31,24 +30,21 @@ export default class Names extends Component {
 			this.setState({ names: newarr })
 		}
 
-		console.log()
-		this.state.names.map((name, i) => {
-			console.log(i)
-		})
+		this.state.names.map((name, i) => {})
 
 		const nameList = this.state.names.map((name, i) => (
 			<Name deleteName={() => deleteName(i)} key={i} name={name} />
 		))
 
 		return (
-			<div>
-				<NameList>{nameList}</NameList>
+			<NameList>
+				{nameList}
 				<form onSubmit={addName}>
 					<label>Namn: </label>
 					<input type='text' id='name'></input>
 					<button type='submit'>Lägg till</button>
 				</form>
-			</div>
+			</NameList>
 		)
 	}
 }
