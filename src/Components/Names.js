@@ -14,7 +14,7 @@ export default class Names extends Component {
 		const NameList = styled.div`
 			display: flex;
 			justify-content: space-around;
-			margin-top: 80vh;
+			/* margin-top: 80vh; */
 		`
 
 		const deleteName = i => {
