@@ -20,7 +20,7 @@ export default class GraphPiece extends Component {
 
 	clicked(e) {
 		const { style } = document.querySelector(`#${this.id}`)
-
+		//TO-DO: Reduntant code?
 		//If already clicked, move back to position
 		if (this.isClicked) {
 			this.isClicked = false
@@ -28,6 +28,7 @@ export default class GraphPiece extends Component {
 			style.left = '0'
 			style.top = '0'
 			style.zIndex = 0
+			style.transform = ''
 		} else {
 			//Else follow the mouse (this won't update itself so the actuall following is done in movedMouse)
 			this.isClicked = true
@@ -35,6 +36,7 @@ export default class GraphPiece extends Component {
 			style.left = `${e.clientX}px`
 			style.top = `${e.clientY}px`
 			style.zIndex = 3
+			style.transform = 'translate(-50%, -50%)'
 		}
 	}
 
@@ -47,6 +49,8 @@ export default class GraphPiece extends Component {
 	}
 
 	render() {
+		document.body.addEventListener('mousemove', this.movedMouse.bind(this))
+
 		//Finds the piece in the json file
 		const Piece = styled.div`
 			height: ${graphpieces[this.props.piece].size}px;
@@ -54,7 +58,7 @@ export default class GraphPiece extends Component {
 			background: ${graphpieces[this.props.piece].color};
 			cursor: pointer;
 			box-sizing: border-box;
-			transform: translate(-50%, -50%);
+			transition: transform 0.4s;
 
 			/* pointer-events: none; */
 		`
@@ -66,7 +70,6 @@ export default class GraphPiece extends Component {
 				className=''
 				draggable='true'
 				onClick={this.clicked.bind(this)}
-				onMouseMove={this.movedMouse.bind(this)}
 				id={this.id}
 			></Piece>
 		)

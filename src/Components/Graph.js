@@ -12,8 +12,6 @@ export default class Graph extends Component {
 		this.setState(this.props)
 	}
 
-	dragOver(e) {}
-
 	dragEnd(e) {
 		const hovers = document.elementsFromPoint(e.screenX, e.screenY)
 
@@ -30,8 +28,9 @@ export default class Graph extends Component {
 	render() {
 		const Graph = styled.div`
 			min-height: 300px;
-			/* transform: rotate(180deg); */
 			border: solid 1px black;
+			display: flex;
+			flex-direction: column-reverse;
 		`
 		let graphPieces = []
 
@@ -40,10 +39,6 @@ export default class Graph extends Component {
 				<GraphPiece piece={piece} key={piece} />
 			))
 
-		return (
-			<Graph onDragEnd={this.dragEnd.bind(this)} onDragOver={this.dragOver.bind(this)}>
-				{graphPieces}
-			</Graph>
-		)
+		return <Graph>{graphPieces}</Graph>
 	}
 }
