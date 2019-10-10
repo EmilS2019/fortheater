@@ -22,13 +22,10 @@ export default class GraphPiece extends Component {
 			style.top = '0'
 			style.zIndex = 0
 			style.transform = ''
-
-			// const {offsetNode} = document.caretPositionFromPoint(e.screenX, e.screenY)
-			// offsetNode.parentElement.appendChild(document.querySelector(`#${this.id}`))
 			
-			const hovers = document.elementsFromPoint(e.screenX, e.screenY)
+			const hovers = document.elementsFromPoint(e.screenX, e.screenY - 100)
 			hovers.forEach(hov => {
-				// console.log(hov.className.split(' ').includes('Name'))
+				console.log(hov)
 				if (hov.className.split(' ').includes('Name')) {
 					console.log(hov)
 					hov.appendChild(document.querySelector(`#${this.id}`))
