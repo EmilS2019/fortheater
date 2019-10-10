@@ -11,13 +11,6 @@ export default class GraphPiece extends Component {
 		this.id = `piece-${this.props.piece}`
 	}
 
-	componentDidMount() {}
-
-	// dragStart(e) {
-	// 	e.dataTransfer.setData('text', 'foo')
-	// 	setTimeout(() => (this.className = 'invisible'), 0)
-	// }
-
 	clicked(e) {
 		const { style } = document.querySelector(`#${this.id}`)
 		//TO-DO: Reduntant code?
@@ -29,6 +22,19 @@ export default class GraphPiece extends Component {
 			style.top = '0'
 			style.zIndex = 0
 			style.transform = ''
+
+			// const {offsetNode} = document.caretPositionFromPoint(e.screenX, e.screenY)
+			// offsetNode.parentElement.appendChild(document.querySelector(`#${this.id}`))
+			
+			const hovers = document.elementsFromPoint(e.screenX, e.screenY)
+			hovers.forEach(hov => {
+				// console.log(hov.className.split(' ').includes('Name'))
+				if (hov.className.split(' ').includes('Name')) {
+					console.log(hov)
+					hov.appendChild(document.querySelector(`#${this.id}`))
+				}
+			})
+
 		} else {
 			//Else follow the mouse (this won't update itself so the actuall following is done in movedMouse)
 			this.isClicked = true
@@ -71,7 +77,7 @@ export default class GraphPiece extends Component {
 				draggable='true'
 				onClick={this.clicked.bind(this)}
 				id={this.id}
-			></Piece>
+			/>
 		)
 	}
 }
