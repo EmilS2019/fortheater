@@ -11,30 +11,45 @@ reader = PyPDF2.PdfFileReader(pdf)
 pdfpage = reader.getPage(7).extractText()
 pageArr = pdfpage.split()
 
-repliker = {"DROTTNINGEN": []}
-actors = ["DROTTNINGEN" "SPRINTER", "GNÄGGIS", "HOVIS", "RUNNER"]
-
+actors = ["DROTTNINGEN", "SPRINTER-JO", "GNÄGGIS", "HOVIS", "RUNNER-FLO"]
+repliker = {}
+for actor in actors:
+    repliker[actor] = []
 
 
 def scanPage():
-    # currentlyDrottning = False
-    currentActor = ""
+    currentActor = "SPRINTER-JO"
 
     for i in range(len(pageArr)):
         
+        add=True
         for actor in actors:
-            if (pageArr[i] == actor):
-                currentActor = actor
+            #If the word scanned is the first letter in the actors name 
+            #i.e "RUNNER" in "RUNNER-FLO"
+            actorSplit = actor.split('-')
+            if (pageArr[i] == actorSplit[0]):
+                #Find out if there's a second part of the name
+                #This is done because the PDF reader put the names on seperate
+                #lines for some reason i.e:
+                #RUNNER
+                #-
+                #FLO
+
+                try:
+                    actorSplit[1]
+                except IndexError:
+                    currentActor = actor
+                else:
+                    i+=2
+                    currentActor=actorSplit[0] + "-" + pageArr[i]
+
+
+                add=False
+                # print(actor)
                 break
-        
-        if arrayAtIndexHasWord(pageArr[i], "DROTTNINGEN"):
-            print("hi")
-            # currentlyDrottning = True
-        elif pageArr[i] == "SPRINTER" or pageArr[i] == "GNÄGGIS" or pageArr[i] == "HOVIS" or pageArr[i] == "RUNNER":
-            print("hi")
-            # currentlyDrottning = False
-        elif False:
-            repliker["DROTTNINGEN"].append(pageArr[i])
+
+        if (add):
+            repliker[currentActor].append(pageArr[i])
 
 def arrayAtIndexHasWord(item, name):
     if item == name:
