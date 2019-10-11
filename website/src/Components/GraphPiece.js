@@ -25,9 +25,7 @@ export default class GraphPiece extends Component {
 			
 			const hovers = document.elementsFromPoint(e.screenX, e.screenY - 100)
 			hovers.forEach(hov => {
-				console.log(hov)
 				if (hov.className.split(' ').includes('Name')) {
-					console.log(hov)
 					hov.appendChild(document.querySelector(`#${this.id}`))
 				}
 			})
