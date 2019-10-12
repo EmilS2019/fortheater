@@ -14,8 +14,8 @@ function App() {
 		<App>
 			{/* <Graphs /> */}
 			{/* <Names names={['Emil', 'Någon', 'Person1']} /> */}
-			<Graph graphPieces={[0, 1, 2]} />
-			<Graph graphPieces={[0, 3]} />
+			<Graph name={"Emil"} graphPieces={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]} />
+			<Graph graphPieces={[]} />
 		</App>
 	)
 }

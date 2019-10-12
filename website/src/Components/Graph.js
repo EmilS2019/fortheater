@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import GraphPiece from './GraphPiece'
 import styled from 'styled-components'
-import Name from './Name'
 
 export default class Graph extends Component {
 	constructor(props) {
@@ -25,6 +24,7 @@ export default class Graph extends Component {
 
 		return <Graph className="Name">
 		{graphPieces}
+		{this.props.name}
 		</Graph>
 	}
 }
