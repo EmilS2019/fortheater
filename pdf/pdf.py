@@ -4,25 +4,28 @@ import re
 pdf = open('pdf.pdf', 'rb')
 reader = PyPDF2.PdfFileReader(pdf)
 
-#Displays the whole PDF
-#for i in range(reader.numPages):
-#    print(reader.getPage(i).extractText())
-
-pdfpage = reader.getPage(7).extractText()
-pageArr = pdfpage.split()
-
-actors = ["DROTTNINGEN", "SPRINTER-JO", "GNÄGGIS", "HOVIS", "RUNNER-FLO"]
-repliker = {}
-for actor in actors:
-    repliker[actor] = []
-
-
-def scanPage():
-    currentActor = "SPRINTER-JO"
-
-    for i in range(len(pageArr)):
-        
-        add=True
+actors = ["KUNGEN", "DROTTNINGEN", "SPRINTER-JO", "RUNNER-FLO", "RUNNER-JO", "HOVIS", 
+"GNÄGGIS", "TORR-CLAES", "TORR-BERIT", "BÅNN-B", "BÅNN-C", "BÅNN-E", 
+"BÅNDI", "FARM-ARIE", "FARM-GÄRY", "FARM-HARRY", "FARMOR", "DEN ANDRA DROTTNINGEN"]
+repliker = {} 
+for actor in actors: 
+    repliker[actor] = [] 
+ 
+currentActor = "KUNGEN" 
+def scanPage(page): 
+    global currentActor
+    pageArr = page.split() 
+    i = 0 
+    while i < len(pageArr): 
+        #Checks if there's a page number and if there is one, skip
+        try: 
+            int(pageArr[i])
+        except ValueError:
+            pass
+        else:
+            i+=1
+ 
+        add=True 
         for actor in actors:
             #If the word scanned is the first letter in the actors name 
             #i.e "RUNNER" in "RUNNER-FLO"
@@ -34,31 +37,49 @@ def scanPage():
                 #RUNNER
                 #-
                 #FLO
-
                 try:
                     actorSplit[1]
                 except IndexError:
+                    if (actorSplit[0] == "familjen"):
+                        print("here")
                     currentActor = actor
-                else:
-                    i+=2
-                    currentActor=actorSplit[0] + "-" + pageArr[i]
+                else: 
 
+                    if (actorSplit[1] == "familjen"):
+                        print("here")
 
+                    if (actorSplit[1]):
+                        i+=2
+                        currentActor = actorSplit[0] + "-" + pageArr[i]
+                    else:
+                        i+=1
                 add=False
-                # print(actor)
                 break
 
         if (add):
-            repliker[currentActor].append(pageArr[i])
+            try:
+                repliker[currentActor].append(pageArr[i])
+            except KeyError:
+                print("error at {}".format(currentActor))
+                
+        i+=1
 
-def arrayAtIndexHasWord(item, name):
-    if item == name:
-        return True
-    else:
-        return False
+def scanPDF(reader):
+    i = 3
+    while i <  reader.numPages:
+        print(i)
+        page = reader.getPage(i).extractText()
+        scanPage(page)
+        i+=1
 
 
 if __name__ == "__main__":
 
-    scanPage()
-    print(repliker)
+    #scanPDF(reader)
+    pass
+    # for replik in repliker:
+        # print("{}: {}".format(replik, len(repliker[replik])))
+
+import io
+
+print(reader.getPage(6).extractText().splitlines())

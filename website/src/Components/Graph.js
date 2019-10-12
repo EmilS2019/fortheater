@@ -25,7 +25,6 @@ export default class Graph extends Component {
 
 		return <Graph className="Name">
 		{graphPieces}
-		<Name name={"hi"}/>
 		</Graph>
 	}
 }
