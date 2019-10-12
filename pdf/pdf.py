@@ -75,11 +75,7 @@ def scanPDF(reader):
 
 if __name__ == "__main__":
 
-    #scanPDF(reader)
-    pass
-    # for replik in repliker:
-        # print("{}: {}".format(replik, len(repliker[replik])))
+    scanPDF(reader)
+    for replik in repliker:
+        print("{}: {}".format(replik, len(repliker[replik])))
 
-import io
-
-print(reader.getPage(6).extractText().splitlines())
