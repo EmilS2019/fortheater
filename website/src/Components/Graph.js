@@ -23,6 +23,7 @@ export default class Graph extends Component {
 		))
 
 		return <Graph className="Name">
+		<button className="button" style={{marginTop:0}}>-</button>
 		{graphPieces}
 		{this.props.name}
 		</Graph>

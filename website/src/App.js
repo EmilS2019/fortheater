@@ -1,8 +1,5 @@
 import React from 'react'
-// import Names from './Components/Names'
-import Graph from './Components/Graph'
 import styled from 'styled-components'
-import AddGraph from './Components/AddGraph'
 import Graphs from './Components/Graphs'
 
 function App() {
@@ -10,6 +7,9 @@ function App() {
 		display: flex;
 		justify-content: space-around;
 	`
+	console.log(window.localStorage.graphs)
+	window.localStorage.clear()
+	// window.prompt("hi")
 
 	return (
 		<App>

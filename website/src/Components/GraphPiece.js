@@ -54,7 +54,6 @@ export default class GraphPiece extends Component {
 	render() {
 		document.body.addEventListener('mousemove', this.movedMouse.bind(this))
 
-		//Finds the piece in the json file
 		const Piece = styled.div`
 			height: ${this.piece.size}px;
 			width: 100px;
@@ -68,7 +67,6 @@ export default class GraphPiece extends Component {
 			&:hover{
 				filter:saturate(100%)brightness(110%);
 			}
-
 		`
 
 		Piece.displayName = 'GraphPiece'

@@ -1,13 +1,10 @@
-import React, { Component, useState } from 'react'
+import React, { Component } from 'react'
 import Graph from './Graph'
 import AddGraph from './AddGraph'
 import styled from 'styled-components'
 
 export default class Graphs extends Component {
 
-	constructor(props){
-		super();
-	}
 	
 	componentDidMount(){
 		this.setState({graphs: []})
@@ -15,17 +12,29 @@ export default class Graphs extends Component {
 
 	addGraph = e =>{
 		e.preventDefault()
+		const newName = window.prompt("Lägg till person")
 		const newArr = this.state.graphs
-		newArr.push(e.target[0].value)
-		this.setState(newArr)
+		if (newArr.length <= 18){
+			newArr.push(newName)
+			this.setState(newArr)
+			console.log(newArr)
+			window.localStorage.graphs = JSON.stringify(newArr)
+		}
+		else{
+			window.alert("Du får ej lägga till fler än 18 människor")
+		}
+	}
+
+	deleteGraph = () =>{
+		console.log("delete dis")
 	}
 
 	render() {
 		const ManyGraphs = styled.div`
 			display: flex;
 			justify-content: space-around;
+			width:100vw;
 		`
-
 
 		return (
 			<ManyGraphs>
@@ -33,7 +42,7 @@ export default class Graphs extends Component {
 				{this.state && this.state.graphs.map(graph => {
 					return <Graph key={graph+new Date().toString()} graphPieces={[]} name={graph}/>
 				})}
-				<AddGraph addGraph={this.addGraph.bind(this)}/>
+				<button className="button" onClick={this.addGraph}>+</button>
 			</ManyGraphs>
 		)
 	}

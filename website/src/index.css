@@ -18,3 +18,9 @@ code {
 .hoverBox:hover div{
 	visibility: visible;
 }
+
+.button{
+	display:inline-block;
+	height:25px;
+	margin-top:570px;
+}
