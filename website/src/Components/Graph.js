@@ -11,10 +11,9 @@ export default class Graph extends Component {
 	render() {
 		const Graph = styled.div`
 			min-height: 300px;
-			border: solid 1px black;
 			display: flex;
 			flex-direction: column-reverse;
-			width:200px;
+			width:98px;
 			align-items:center;
 			margin:0 10px;
 		`

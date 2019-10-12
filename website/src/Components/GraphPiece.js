@@ -61,14 +61,14 @@ export default class GraphPiece extends Component {
 			background:  ${this.piece.color};
 			cursor: pointer;
 			box-sizing: border-box;
-			transition: transform 0.4s;
+			border: 1px solid rgb(0,0,0,00.2);
+			transform-style:preserve-3d;
 			filter:saturate(92%) brightness(90%);
 
 			&:hover{
 				filter:saturate(100%)brightness(110%);
 			}
 
-			/* pointer-events: none; */
 		`
 
 		Piece.displayName = 'GraphPiece'

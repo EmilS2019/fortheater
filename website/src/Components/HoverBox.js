@@ -12,6 +12,14 @@ export default function HoverBox({piece}) {
         transform:translateX(6.2rem);
         font-size:0.9rem;
 
+        &:hover{
+            transform:translateZ(1rem)
+            &::after, &::before, &{
+            transform:translateZ(1rem)
+        }
+        }
+
+
     `
 
     return (

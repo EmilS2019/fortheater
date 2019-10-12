@@ -1,12 +1,6 @@
 import React from 'react'
 
-export default function AddGraph() {
-
-    const addGraph = e =>{    
-        e.preventDefault()
-        console.log(e.target[0].value)
-    }
-
+export default function AddGraph({addGraph}) {
     return (
         <div>
             <form onSubmit={addGraph}>
