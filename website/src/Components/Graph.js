@@ -13,7 +13,7 @@ export default class Graph extends Component {
 			min-height: 300px;
 			display: flex;
 			flex-direction: column-reverse;
-			width:98px;
+			width:120px;
 			align-items:center;
 			margin:0 10px;
 		`
@@ -23,7 +23,7 @@ export default class Graph extends Component {
 		))
 
 		return <Graph className="Name">
-		<button className="button" style={{marginTop:0}}>-</button>
+		<button onClick={this.props.deleteGraph} className="button" style={{marginTop:0}}>-</button>
 		{graphPieces}
 		{this.props.name}
 		</Graph>
