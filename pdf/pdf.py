@@ -44,7 +44,6 @@ def scanPage(page):
                         print("here")
                     currentActor = actor
                 else: 
-                    print("{}-{}".format(actorSplit[0],pageArr[i+2]))
                     if (actorSplit[1] and "{}-{}".format(actorSplit[0],pageArr[i+2]) in actors ):
                         i+=2
                         currentActor = actorSplit[0] + "-" + pageArr[i]
@@ -61,18 +60,19 @@ def scanPage(page):
                 
         i+=1
 
-def scanPDF(reader):
+def scanPDF(reader, displayResults):
     i = 3
     while i <  reader.numPages:
-        print(i)
+        print("Scanning page num {}".format(i))
         page = reader.getPage(i).extractText()
         scanPage(page)
         i+=1
+    print("Done scanning pdf")
+    if displayResults:
+        for replik in repliker:
+            print("{}: {}".format(replik, len(repliker[replik])))
 
 
 if __name__ == "__main__":
-
-    scanPDF(reader)
-    for replik in repliker:
-        print("{}: {}".format(replik, len(repliker[replik])))
-
+    scanPDF(reader, displayResults=True)
+    print(repliker["KUNGEN"])

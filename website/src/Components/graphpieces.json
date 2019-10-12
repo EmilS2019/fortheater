@@ -1,22 +1,110 @@
 [
 	{
 		"index": 0,
+		"actor": "",
 		"size": 0,
 		"color": "white"
 	},
 	{
 		"index": 1,
-		"size": 30,
-		"color": "red"
+		"size": 43.0,
+		"actor":"KUNGEN",
+		"color": "gold"
 	},
 	{
 		"index": 2,
-		"size": 60,
-		"color": "blue"
+		"size": 94.7,
+		"actor":"DROTTNINGEN",
+		"color": "purple"
 	},
 	{
 		"index": 3,
-		"size": 50,
+		"size": 32.3,
+		"actor":"SPRINTER-JO",
+		"color": "green"
+	},
+	{
+		"index": 4,
+		"size": 24.0,
+		"actor":"RUNNER-FLO",
+		"color": "green"
+	},
+	{
+		"index": 5,
+		"size": 31.5,
+		"actor":"HOVIS",
+		"color": "green"
+	},
+	{
+		"index": 6,
+		"size": 26.2,
+		"actor":"GNÄGGIS",
+		"color": "blue"
+	},
+	{
+		"index": 7,
+		"size": 71.6,
+		"actor":"TORR-CLAES",
+		"color": "green"
+	},
+	{
+		"index": 8,
+		"size": 27.0,
+		"actor":"TORR-BERIT",
+		"color": "red"
+	},
+	{
+		"index": 9,
+		"size": 17.6,
+		"actor":"BÅNN-B",
+		"color": "coral"
+	},
+	{
+		"index": 10,
+		"size": 34.4,
+		"actor":"BÅNN-C",
+		"color": "orange"
+	},
+	{
+		"index": 11,
+		"size": 21.0,
+		"actor":"BÅNN-E",
+		"color": "black"
+	},
+	{
+		"index": 12,
+		"size": 35.2,
+		"actor":"BÅNDI",
+		"color": "purple"
+	},
+	{
+		"index": 13,
+		"size": 19.2,
+		"actor":"FARM-ARIE",
+		"color": "pink"
+	},
+	{
+		"index": 14,
+		"size": 13.8,
+		"actor":"FARM-GÄRY",
+		"color": "green"
+	},
+	{
+		"index": 15,
+		"size": 21.5,
+		"actor":"FARM-HARRY",
+		"color": "green"
+	},
+	{
+		"index": 16,
+		"size": 39.0,
+		"actor":"FARMOR",
+		"color": "darkred"
+	},
+	{
+		"index": 17,
+		"size": 2.0,
+		"actor":"DEN ANDRA DROTTNINGEN",
 		"color": "green"
 	}
 	

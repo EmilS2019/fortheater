@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import graphpieces from './graphpieces.json'
+import HoverBox from './HoverBox.js'
 
 export default class GraphPiece extends Component {
 	//Passes down piece, and piece is the index of the piece in the json file
@@ -9,6 +10,7 @@ export default class GraphPiece extends Component {
 		this.props = props
 		this.isClicked = false
 		this.id = `piece-${this.props.piece}`
+		this.piece = graphpieces[this.props.piece]
 	}
 
 	clicked(e) {
@@ -54,9 +56,9 @@ export default class GraphPiece extends Component {
 
 		//Finds the piece in the json file
 		const Piece = styled.div`
-			height: ${graphpieces[this.props.piece].size}px;
+			height: ${this.piece.size}px;
 			width: 100px;
-			background: ${graphpieces[this.props.piece].color};
+			background: ${this.piece.color};
 			cursor: pointer;
 			box-sizing: border-box;
 			transition: transform 0.4s;
@@ -65,14 +67,15 @@ export default class GraphPiece extends Component {
 		`
 
 		Piece.displayName = 'GraphPiece'
-
 		return (
 			<Piece
-				className=''
+				className='hoverBox'
 				draggable='true'
 				onClick={this.clicked.bind(this)}
 				id={this.id}
-			/>
+			>
+				<HoverBox text={this.piece.actor}/>
+			</Piece>
 		)
 	}
 }
