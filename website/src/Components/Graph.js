@@ -16,6 +16,7 @@ export default class Graph extends Component {
 			flex-direction: column-reverse;
 			width:200px;
 			align-items:center;
+			margin:0 10px;
 		`
 
 		const graphPieces = this.props.graphPieces.map(piece => (

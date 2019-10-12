@@ -58,10 +58,15 @@ export default class GraphPiece extends Component {
 		const Piece = styled.div`
 			height: ${this.piece.size}px;
 			width: 100px;
-			background: ${this.piece.color};
+			background:  ${this.piece.color};
 			cursor: pointer;
 			box-sizing: border-box;
 			transition: transform 0.4s;
+			filter:saturate(92%) brightness(90%);
+
+			&:hover{
+				filter:saturate(100%)brightness(110%);
+			}
 
 			/* pointer-events: none; */
 		`
@@ -74,7 +79,7 @@ export default class GraphPiece extends Component {
 				onClick={this.clicked.bind(this)}
 				id={this.id}
 			>
-				<HoverBox text={this.piece.actor}/>
+				<HoverBox piece={this.piece}/>
 			</Piece>
 		)
 	}

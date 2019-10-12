@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
+import GraphPiece from './GraphPiece'
 
-export default function HoverBox({text}) {
+export default function HoverBox({piece}) {
 
     const Box = styled.div`
         position:absolute;
@@ -15,7 +16,9 @@ export default function HoverBox({text}) {
 
     return (
         <Box>
-            {text}
+            {piece.actor}
+            <br/>
+            {piece.size * 10} Ord
         </Box>
     )
 }
