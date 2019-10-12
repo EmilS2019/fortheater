@@ -4,9 +4,9 @@ import re
 pdf = open('pdf.pdf', 'rb')
 reader = PyPDF2.PdfFileReader(pdf)
 
-actors = ["KUNGEN", "DROTTNINGEN", "SPRINTER-JO", "RUNNER-FLO", "RUNNER-JO", "HOVIS", 
+actors = ["KUNGEN", "DROTTNINGEN", "SPRINTER-JO", "RUNNER-FLO", "HOVIS", 
 "GNÄGGIS", "TORR-CLAES", "TORR-BERIT", "BÅNN-B", "BÅNN-C", "BÅNN-E", 
-"BÅNDI", "FARM-ARIE", "FARM-GÄRY", "FARM-HARRY", "FARMOR", "DEN ANDRA DROTTNINGEN"]
+"BÅNDI", "FARM-ARIE", "FARM-GÄRY", "FARM-HARRY", "FARMOR"]
 repliker = {} 
 for actor in actors: 
     repliker[actor] = [] 
@@ -44,11 +44,8 @@ def scanPage(page):
                         print("here")
                     currentActor = actor
                 else: 
-
-                    if (actorSplit[1] == "familjen"):
-                        print("here")
-
-                    if (actorSplit[1]):
+                    print("{}-{}".format(actorSplit[0],pageArr[i+2]))
+                    if (actorSplit[1] and "{}-{}".format(actorSplit[0],pageArr[i+2]) in actors ):
                         i+=2
                         currentActor = actorSplit[0] + "-" + pageArr[i]
                     else:
