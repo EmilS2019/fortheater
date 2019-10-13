@@ -20,6 +20,10 @@ export default class Graph extends Component {
 			width:120px;
 			align-items:center;
 			margin:0 10px;
+			p{
+				position:absolute;
+				bottom:1rem;
+			}
 		`
 		
 		let graphPieces = []
@@ -31,8 +35,8 @@ export default class Graph extends Component {
 
 		return <Graph className="Name" id={this.props.id}>
 		<button onClick={this.props.deleteGraph} className="button" style={{marginTop:0}}>X</button>
-		{graphPieces }
-		{this.props.name}
+		{graphPieces}
+		<p>{this.props.name}</p>
 		</Graph>
 	}
 }
