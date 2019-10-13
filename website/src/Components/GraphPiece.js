@@ -4,6 +4,7 @@ import graphpieces from './graphpieces.json'
 import HoverBox from './HoverBox.js'
 
 export default class GraphPiece extends Component {
+	
 	//Passes down piece, and piece is the index of the piece in the json file
 	constructor(props) {
 		super(props)
@@ -14,6 +15,7 @@ export default class GraphPiece extends Component {
 	}
 
 	clicked(e) {
+		if (!this.piece) return;
 		const { style } = document.querySelector(`#${this.id}`)
 		//TO-DO: Reduntant code?
 		//If already clicked, move back to position
@@ -53,8 +55,9 @@ export default class GraphPiece extends Component {
 
 	render() {
 		document.body.addEventListener('mousemove', this.movedMouse.bind(this))
-
-		const Piece = styled.div`
+		if (this.piece){
+			
+			var Piece = styled.div`
 			height: ${this.piece.size}px;
 			width: 100px;
 			background:  ${this.piece.color};
@@ -70,6 +73,8 @@ export default class GraphPiece extends Component {
 		`
 
 		Piece.displayName = 'GraphPiece'
+
+		
 		return (
 			<Piece
 				className='hoverBox'
@@ -79,5 +84,6 @@ export default class GraphPiece extends Component {
 				<HoverBox piece={this.piece}/>
 			</Piece>
 		)
+	}
 	}
 }

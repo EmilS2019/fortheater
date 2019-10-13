@@ -100,6 +100,11 @@
 		"size": 0.2,
 		"actor":"DEN ANDRA DROTTNINGEN",
 		"color": "#a6f"
+	},
+	{
+		"index": 18,
+		"size": 0,
+		"actor":"PLACEHOLDER",
+		"color": "#a6f"
 	}
-	
 ]

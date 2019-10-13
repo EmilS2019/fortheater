@@ -13,11 +13,15 @@ export default class Graphs extends Component {
 				8, 9, 10, 11, 12, 13, 14, 15, 16
 			]},{
 				name:"Test",
+				pieces:[null]
+			},{
+				name:"Test",
 				pieces:[]
 			}
 		]})
 
 
+		
 		}
 
 
@@ -61,15 +65,58 @@ export default class Graphs extends Component {
 	}
 
 	deleteGraph = e =>{
+		//DOM ID is the id for the DOM object
+		//Arr ID is for this.state object instead
 		const DOMId = e.target.parentNode.id 
 		const children = document.querySelector(`#${DOMId}`).children
-		for (let i = 0; i < children.length; i++) {
-			document.querySelector("#graph-0").appendChild(children[i])
-		}
 
+		// for (let i = 0; i < children.length; i++) {
+		// 	document.querySelector("#graph-0").appendChild(children[i])
+		// }
 		const arrId = DOMId.split("-")[1]
+		
 		const newArr = this.state.graphs
-		newArr.splice(arrId, 1)
+		console.log(this.state.graphs)
+		// newArr.splice(arrId, 1)
+
+		//Gets all the graphs from the dom so we can store the graphpieces inside of them
+		const oldArrDOM = document.querySelector("#graphs").children
+		console.log(oldArrDOM)
+		
+		for (let i = 0; i < oldArrDOM.length; i++) {
+			if (i == arrId){
+				const toRemove = document.querySelector(`#graph-${arrId}`)
+				
+				for (let j = 0; j < toRemove.children.length; j++) {
+					const pieceToMove= Number.parseInt(toRemove.children[j].id.split('-')[1])
+					pieceToMove && newArr[0].pieces.push(pieceToMove)
+					console.log(newArr[0].pieces)
+				}
+			
+				toRemove.remove()
+				newArr.splice(arrId, 1)
+			}
+			else{
+
+			}
+			
+		}
+		this.setState(newArr)
+	}
+
+	changeInGraphPieces = e =>{
+		let newArr = this.state.graphs
+		const graphId = e.relatedNode.id.split("-")[1]
+		const pieceId = Number.parseInt(e.target.id.split("-")[1])
+		if (e.type === "DOMNodeRemoved"){
+			// newArr[graphId].pieces[pieceId] = null
+
+		}
+		else if (e.type === "DOMNodeInserted"){
+			newArr[graphId].pieces[pieceId] = pieceId
+		}
+		console.log(newArr)
+		newArr[graphId].pieces.sort((a,b) => (a - b));
 		this.setState(newArr)
 	}
 
@@ -83,7 +130,7 @@ export default class Graphs extends Component {
 		return (
 			<ManyGraphs id={"graphs"}>
 				{this.state && this.state.graphs.map((graph, i) => {
-					return <Graph deleteGraph={this.deleteGraph.bind(this)} graphPieces={graph.pieces} id={`graph-${i}`} key={Math.random()*1000000000} name={graph.name}/>
+					return <Graph changeInGraphPieces={this.changeInGraphPieces.bind(this)} deleteGraph={this.deleteGraph.bind(this)} graphPieces={graph.pieces} id={`graph-${i}`} key={Math.random()*1000000000} name={graph.name}/>
 				})}
 				<button className="button" onClick={this.addGraph}>+</button>
 			</ManyGraphs>

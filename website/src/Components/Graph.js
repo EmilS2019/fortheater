@@ -8,6 +8,15 @@ export default class Graph extends Component {
 		this.props = props
 	}
 
+	componentDidMount(){
+		document.querySelector(`#${this.props.id}`).addEventListener("DOMNodeInserted", e => {
+		this.props.changeInGraphPieces(e);
+	})
+	document.querySelector(`#${this.props.id}`).addEventListener("DOMNodeRemoved", e => {
+		this.props.changeInGraphPieces(e);
+	})
+}
+
 	render() {
 		const Graph = styled.div`
 			min-height: 300px;
