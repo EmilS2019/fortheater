@@ -7,9 +7,9 @@ function App() {
 		display: flex;
 		justify-content: space-around;
 	`
-	console.log(window.localStorage.graphs)
+	window.localStorage.setItem("graphs", {})
+	// console.log(JSON.parse(window.localStorage[2]))
 	window.localStorage.clear()
-	// window.prompt("hi")
 
 	return (
 		<App>

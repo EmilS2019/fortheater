@@ -73,7 +73,6 @@ export default class GraphPiece extends Component {
 		return (
 			<Piece
 				className='hoverBox'
-				draggable='true'
 				onClick={this.clicked.bind(this)}
 				id={this.id}
 			>
