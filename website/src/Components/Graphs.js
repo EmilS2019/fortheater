@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 export default class Graphs extends Component {
 	componentDidMount() {
-		this.setState({
+		/*this.setState({
 			graphs: [
 				{
 					name: 'Alla',
@@ -19,7 +19,7 @@ export default class Graphs extends Component {
 					pieces: []
 				}
 			]
-		})
+		})*/
 	}
 
 	addGraph = e => {
