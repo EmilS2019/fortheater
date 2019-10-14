@@ -8,39 +8,48 @@ export default class Graph extends Component {
 		this.props = props
 	}
 
-	componentDidMount(){
-		document.querySelector(`#${this.props.id}`).addEventListener("DOMNodeInserted", e => {
-		this.props.changeInGraphPieces(e);
-	})
-	document.querySelector(`#${this.props.id}`).addEventListener("DOMNodeRemoved", e => {
-		this.props.changeInGraphPieces(e);
-	})
-}
+	componentDidMount() {
+		document.querySelector(`#${this.props.id}`).addEventListener('DOMNodeInserted', e => {
+			this.props.changeInGraphPieces(e)
+		})
+		document.querySelector(`#${this.props.id}`).addEventListener('DOMNodeRemoved', e => {
+			this.props.changeInGraphPieces(e)
+		})
+	}
 
 	render() {
 		const Graph = styled.div`
 			min-height: 300px;
 			display: flex;
 			flex-direction: column-reverse;
-			width:120px;
-			align-items:center;
-			margin:0 10px;
-			p{
-				order:-4;
+			width: 120px;
+			align-items: center;
+			margin: 0 10px;
+			p {
+				order: -4;
 			}
 		`
-		
-		let graphPieces = []
-		if (this.props.graphPieces){	
-			graphPieces = this.props.graphPieces.map(piece => (
-				<GraphPiece piece={piece} key={piece} />
-				))
-			}
 
-		return <Graph className="Name" id={this.props.id}>
-		{this.props.id !== "graph-0" && <button onClick={this.props.deleteGraph} className="button" style={{marginTop:0}}>X</button>}
-		{graphPieces}
-		<p>{this.props.name}</p>
-		</Graph>
+		if (this.props.graphPieces && this.props.graphPieces[0] !== null) {
+			var graphPieces = this.props.graphPieces.map(piece => (
+				<GraphPiece piece={piece} key={piece} />
+			))
+		}
+
+		return (
+			<Graph className='Name' id={this.props.id}>
+				{this.props.id !== 'graph-0' && (
+					<button
+						onClick={this.props.deleteGraph}
+						className='button'
+						style={{ marginTop: 0 }}
+					>
+						X
+					</button>
+				)}
+				{graphPieces}
+				<p>{this.props.name}</p>
+			</Graph>
+		)
 	}
 }
