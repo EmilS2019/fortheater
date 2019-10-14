@@ -10,3 +10,17 @@ body {
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+.hoverBox div{
+	visibility: hidden;
+}
+
+.hoverBox:hover div{
+	visibility: visible;
+}
+
+.button{
+	display:inline-block;
+	height:25px;
+	margin-top:570px;
+}

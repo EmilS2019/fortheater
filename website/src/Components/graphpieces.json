@@ -1,0 +1,110 @@
+[
+	{
+		"index": 1,
+		"size": 43.0,
+		"actor":"KUNGEN",
+		"color": "#FF9782"
+	},
+	{
+		"index": 2,
+		"size": 94.7,
+		"actor":"DROTTNINGEN",
+		"color": "#E876DF"
+	},
+	{
+		"index": 3,
+		"size": 32.3,
+		"actor":"SPRINTER-JO",
+		"color": "#E87976"
+	},
+	{
+		"index": 4,
+		"size": 24.0,
+		"actor":"RUNNER-FLO",
+		"color": "#E382FF"
+	},
+	{
+		"index": 5,
+		"size": 31.5,
+		"actor":"HOVIS",
+		"color": "#FF90BF"
+	},
+	{
+		"index": 6,
+		"size": 26.2,
+		"actor":"GNÄGGIS",
+		"color": "#E8342C"
+	},
+	{
+		"index": 7,
+		"size": 71.6,
+		"actor":"TORR-CLAES",
+		"color": "#FF6D3E"
+	},
+	{
+		"index": 8,
+		"size": 27.0,
+		"actor":"TORR-BERIT",
+		"color": "#FFB530"
+	},
+	{
+		"index": 9,
+		"size": 17.6,
+		"actor":"BÅNN-B",
+		"color": "#A0FF4D"
+	},
+	{
+		"index": 10,
+		"size": 34.4,
+		"actor":"BÅNN-C",
+		"color": "#40FFAE"
+	},
+	{
+		"index": 11,
+		"size": 21.0,
+		"actor":"BÅNN-E",
+		"color": "#BAFFD0"
+	},
+	{
+		"index": 12,
+		"size": 35.2,
+		"actor":"BÅNDI",
+		"color": "#29FFA4"
+	},
+	{
+		"index": 13,
+		"size": 19.2,
+		"actor":"FARM-ARIE",
+		"color": "#48E8DB"
+	},
+	{
+		"index": 14,
+		"size": 13.8,
+		"actor":"FARM-GÄRY",
+		"color": "#5CD6FF"
+	},
+	{
+		"index": 15,
+		"size": 21.5,
+		"actor":"FARM-HARRY",
+		"color": "#488CE8"
+	},
+	{
+		"index": 16,
+		"size": 39.0,
+		"actor":"FARMOR",
+		"color": "#FFC9E4"
+	},
+	{
+		"index": 17,
+		"size": 0.2,
+		"actor":"DEN ANDRA DROTTNINGEN",
+		"color": "#a6f"
+	},
+	{
+		"index": 18,
+		"size": 0,
+		"actor":"PLACEHOLDER",
+		"color": "#a6f"
+	}
+]

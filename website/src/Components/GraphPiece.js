@@ -1,24 +1,21 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import graphpieces from './graphpieces.json'
+import HoverBox from './HoverBox.js'
 
 export default class GraphPiece extends Component {
+	
 	//Passes down piece, and piece is the index of the piece in the json file
 	constructor(props) {
 		super(props)
 		this.props = props
 		this.isClicked = false
 		this.id = `piece-${this.props.piece}`
+		this.piece = graphpieces[this.props.piece]
 	}
 
-	componentDidMount() {}
-
-	// dragStart(e) {
-	// 	e.dataTransfer.setData('text', 'foo')
-	// 	setTimeout(() => (this.className = 'invisible'), 0)
-	// }
-
 	clicked(e) {
+		if (!this.piece) return;
 		const { style } = document.querySelector(`#${this.id}`)
 		//TO-DO: Reduntant code?
 		//If already clicked, move back to position
@@ -29,6 +26,14 @@ export default class GraphPiece extends Component {
 			style.top = '0'
 			style.zIndex = 0
 			style.transform = ''
+			
+			const hovers = document.elementsFromPoint(e.screenX, e.screenY - 100)
+			hovers.forEach(hov => {
+				if (hov.className.split(' ').includes('Name')) {
+					hov.appendChild(document.querySelector(`#${this.id}`))
+				}
+			})
+
 		} else {
 			//Else follow the mouse (this won't update itself so the actuall following is done in movedMouse)
 			this.isClicked = true
@@ -50,28 +55,35 @@ export default class GraphPiece extends Component {
 
 	render() {
 		document.body.addEventListener('mousemove', this.movedMouse.bind(this))
-
-		//Finds the piece in the json file
-		const Piece = styled.div`
-			height: ${graphpieces[this.props.piece].size}px;
+		if (this.piece){
+			
+			var Piece = styled.div`
+			height: ${this.piece.size}px;
 			width: 100px;
-			background: ${graphpieces[this.props.piece].color};
+			background:  ${this.piece.color};
 			cursor: pointer;
 			box-sizing: border-box;
-			transition: transform 0.4s;
+			border: 1px solid rgb(0,0,0,00.2);
+			transform-style:preserve-3d;
+			filter:saturate(92%) brightness(90%);
 
-			/* pointer-events: none; */
+			&:hover{
+				filter:saturate(100%)brightness(110%);
+			}
 		`
 
 		Piece.displayName = 'GraphPiece'
 
+		
 		return (
 			<Piece
-				className=''
-				draggable='true'
+				className='hoverBox'
 				onClick={this.clicked.bind(this)}
 				id={this.id}
-			></Piece>
+			>
+				<HoverBox piece={this.piece}/>
+			</Piece>
 		)
+	}
 	}
 }

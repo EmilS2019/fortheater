@@ -1,0 +1,28 @@
+KUNGEN: 430
+DROTTNINGEN: 947
+SPRINTER-JO: 323
+RUNNER-FLO: 240
+HOVIS: 315
+GNÄGGIS: 262
+TORR-CLAES: 716
+TORR-BERIT: 270
+BÅNN-B: 176
+BÅNN-C: 344
+BÅNN-E: 210
+BÅNDI: 352
+FARM-ARIE: 192
+FARM-GÄRY: 138
+FARM-HARRY: 215
+FARMOR: 390
+DEN ANDRA DROTTNINGEN: 2
+
+Possible innacuracies:
+I was unable to do it line by line, so it might be a little wonky. So I 
+had to do it word for word, which led to many lines attributed wrongly.
+However this innacuracy I believe is acceptable, for it is probably not
+that much and a rough estimate is good enough
+
+Some manual adjustments:
+KUNGEN -70
+TORR-CLAES: +70
+DROTTNINGEN: -2
