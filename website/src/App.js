@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import Graphs from './Components/Graphs'
-import Firebase from './firebase'
 
 function App() {
 	const App = styled.div`
@@ -11,8 +10,17 @@ function App() {
 
 	return (
 		<App>
+			<div
+				style={{
+					position: 'fixed',
+					top: '0',
+					left: '0',
+					width: '10px',
+					height: '10px',
+					background: 'black'
+				}}
+			></div>
 			<Graphs />
-			<Firebase />
 		</App>
 	)
 }

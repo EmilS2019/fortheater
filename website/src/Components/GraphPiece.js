@@ -26,7 +26,14 @@ export default class GraphPiece extends Component {
 			style.zIndex = 0
 			style.transform = ''
 
-			const hovers = document.elementsFromPoint(e.screenX, e.screenY - 100)
+			let { screenX, screenY } = e
+			if (window.chrome) screenX -= screenX / 6
+			if (window.navigator.userAgent.match(/Firefox\/([0-9]+)\./)) screenY -= 100
+			else screenY -= 200
+			const hovers = document.elementsFromPoint(screenX, screenY)
+			console.log(hovers)
+
+			console.log({ screenX, screenY })
 			hovers.forEach(hov => {
 				if (hov.className.split(' ').includes('Name')) {
 					hov.appendChild(document.querySelector(`#${this.id}`))
