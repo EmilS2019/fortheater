@@ -14,8 +14,7 @@ function App() {
 		<App>
 			{/* <Graphs /> */}
 			{/* <Names names={['Emil', 'Någon', 'Person1']} /> */}
-			<Graph graphPieces={[0, 1]} />
-			<Graph graphPieces={[2]} />
+			<Graphs />
 		</App>
 	)
 }
