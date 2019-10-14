@@ -10,16 +10,6 @@ function App() {
 
 	return (
 		<App>
-			<div
-				style={{
-					position: 'fixed',
-					top: '0',
-					left: '0',
-					width: '10px',
-					height: '10px',
-					background: 'black'
-				}}
-			></div>
 			<Graphs />
 		</App>
 	)

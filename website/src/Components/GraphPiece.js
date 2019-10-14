@@ -27,7 +27,6 @@ export default class GraphPiece extends Component {
 			style.transform = ''
 
 			let { screenX, screenY } = e
-			if (window.chrome) screenX -= screenX / 6
 			if (window.navigator.userAgent.match(/Firefox\/([0-9]+)\./)) screenY -= 100
 			else screenY -= 200
 			const hovers = document.elementsFromPoint(screenX, screenY)
